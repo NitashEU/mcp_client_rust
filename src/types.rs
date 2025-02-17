@@ -338,8 +338,8 @@ pub struct GetPromptResult {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CallToolResult {
     pub content: Vec<MessageContent>,
-    #[serde(rename = "isError")]
-    pub is_error: bool,
+    #[serde(rename = "isError", skip_serializing_if = "Option::is_none")]
+    pub is_error: Option<bool>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
